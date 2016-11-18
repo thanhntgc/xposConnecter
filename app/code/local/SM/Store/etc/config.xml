@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <SM_Store>
+            <version>0.0.1</version>
+        </SM_Store>
+    </modules>
+
+    <global>
+        <models>
+            <xstore>
+                <class>SM_Store_Model</class>
+            </xstore>
+        </models>
+    </global>
+</config>

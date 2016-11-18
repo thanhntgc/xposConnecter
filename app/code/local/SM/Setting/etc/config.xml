@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <SM_Setting>
+            <version>0.0.1</version>
+        </SM_Setting>
+    </modules>
+
+    <global>
+        <models>
+            <xsetting>
+                <class>SM_Setting_Model</class>
+            </xsetting>
+        </models>
+    </global>
+</config>

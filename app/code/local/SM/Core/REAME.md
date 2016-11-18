@@ -1,0 +1,1 @@
+# Hoạt động độc lập không phụ thuộc vào bất cứ nền tảng nào

@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <SM_Tax>
+            <version>0.0.1</version>
+        </SM_Tax>
+    </modules>
+
+    <global>
+        <models>
+            <xtax>
+                <class>SM_Tax_Model</class>
+            </xtax>
+        </models>
+    </global>
+</config>

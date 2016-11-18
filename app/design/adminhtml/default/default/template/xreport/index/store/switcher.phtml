@@ -1,0 +1,73 @@
+<?php
+/**
+ * Created by IntelliJ IDEA.
+ * User: vjcspy
+ * Date: 10/21/15
+ * Time: 4:22 PM
+ */
+?>
+
+<?php /* @var $this SM_XReport_Block_Adminhtml_Store_Switcher */ ?>
+<div class="switcher setup_main">
+    <?php if($this->hasXpos()->show == true):?>
+        <div class="row">
+            <div class="col-lg-8">
+                <label for="order_with_xpos" class="setup-label">Order with XPOS</label>
+            </div>
+            <div class="col-lg-4">
+                <div class="checkbox-slider-md checkbox-slider--b-flat">
+                    <label>
+                        <input<?php echo ($this->hasXpos()->value == 'true')?' checked=""':'';?> type="checkbox" id="order_with_xpos" name="order_with_xpos" onchange="orderWithXPOS(this)"><span></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    <?php endif;?>
+<?php if ($websites = $this->getWebsites()): ?>
+    <div class="">
+        <label for="store_switcher"><?php echo $this->__('Choose Store View:') ?></label>
+        <select name="store_switcher" id="store_switcher" class="form-control" ng-model="switchStore.currentStore">
+            <?php if ($this->hasDefaultOption()): ?>
+                <option value=""><?php echo $this->getDefaultStoreName() ?></option>
+            <?php endif; ?>
+            <?php foreach ($websites as $website): ?>
+                <?php $showWebsite = false; ?>
+                <?php foreach ($website->getGroups() as $group): ?>
+                    <?php $showGroup = false; ?>
+                    <?php foreach ($this->getStores($group) as $store): ?>
+                        <?php if ($showWebsite == false): ?>
+                            <?php $showWebsite = true; ?>
+                            <optgroup label="<?php echo $this->escapeHtml($website->getName()) ?>"></optgroup>
+                        <?php endif; ?>
+                        <?php if ($showGroup == false): ?>
+                            <?php $showGroup = true; ?>
+                            <optgroup label="&nbsp;&nbsp;&nbsp;<?php echo $this->escapeHtml($group->getName()) ?>">
+                        <?php endif; ?>
+                        <option
+                            value="<?php echo $this->escapeHtml($store->getId()) ?>"<?php if ($this->getStoreId() == $store->getId()): ?> selected="selected"<?php endif; ?>>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<?php echo $this->escapeHtml($store->getName()) ?></option>
+                    <?php endforeach; ?>
+                    <?php if ($showGroup): ?>
+                        </optgroup>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+            <?php endforeach; ?>
+        </select>
+    </div>
+    <?php endif; ?>
+</div>
+
+<script>
+    function orderWithXPOS(e){
+        showLoad();
+        jQuery.ajax({
+            url: XREPORT_URL+"xMain/orderWithXpos?xpos="+e.checked
+        }).done(function(result) {
+            if(result == 'true') {
+                location.reload();
+                //hideLoad();
+            }
+        });
+
+    }
+</script>
