@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <SM_Category>
+            <version>0.0.1</version>
+        </SM_Category>
+    </modules>
+
+    <global>
+        <models>
+            <xcategory>
+                <class>SM_Category_Model</class>
+            </xcategory>
+        </models>
+    </global>
+</config>

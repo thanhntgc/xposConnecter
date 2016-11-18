@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <SM_XReport>
+            <version>0.0.1</version>
+        </SM_XReport>
+    </modules>
+
+    <global>
+        <models>
+            <xreport>
+                <class>SM_XReport_Model</class>
+            </xreport>
+        </models>
+        <helpers>
+            <xreport>
+                <class>SM_XReport_Helper</class>
+            </xreport>
+        </helpers>
+    </global>
+</config>

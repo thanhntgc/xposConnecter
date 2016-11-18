@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <SM_Customer>
+            <version>0.0.1</version>
+        </SM_Customer>
+    </modules>
+
+    <global>
+        <models>
+            <xcustomer>
+                <class>SM_Customer_Model</class>
+            </xcustomer>
+        </models>
+    </global>
+</config>
